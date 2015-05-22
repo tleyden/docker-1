@@ -24,7 +24,7 @@ RUN rpm --install $CB_RELEASE_URL/$CB_VERSION/$CB_PACKAGE
 
 COPY scripts/couchbase-start /usr/local/bin/
 ENTRYPOINT ["couchbase-start"]
-CMD ["couchbase-server", "--", "-noinput"]
+CMD ["couchbase-server", "--", "-noinput", "-ns_server", "dont_suppress_stderr_logger", "true"]
 # pass -noinput so it doesn't drop us in the erlang shell
 
 EXPOSE 8091 8092 11207 11210 11211 18091 18092
